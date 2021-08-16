@@ -1,7 +1,7 @@
 FROM golang:latest 
 
-COPY hello .
+COPY test-pipeline .
 
 FROM scratch
-COPY --from=0 /go/hello .
+COPY --from=0 /go/test-pipeline .
 CMD ["./hello"]
