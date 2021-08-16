@@ -4,4 +4,4 @@ COPY test-pipeline .
 
 FROM scratch
 COPY --from=0 /go/test-pipeline .
-CMD ["./hello"]
+CMD ["./test-pipeline"]
