@@ -1,7 +1,11 @@
-FROM golang:latest 
+FROM golang:1.16
 
-COPY test-pipeline .
+RUN mkdir /app
+COPY hello.go /app/
+WORKDIR /app
+RUN go build -o hello hello.go
+
 
 FROM scratch
-COPY --from=0 /go/test-pipeline .
-CMD ["./test-pipeline"]
+COPY --from=0 /app/hello app/hello
+CMD ["./hello"]
