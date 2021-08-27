@@ -8,4 +8,4 @@ RUN go build -o hello hello.go
 
 FROM scratch
 COPY --from=0 /app/hello app/hello
-CMD ["./hello"]
+ENTRYPOINT ["/app/hello"]
